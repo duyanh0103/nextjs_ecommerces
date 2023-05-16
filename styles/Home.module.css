@@ -1,0 +1,51 @@
+/* Login */
+
+.login_form {
+    min-height: 100vh;
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: cadetblue;
+
+}
+
+.login_container {
+    /* border: 1px solid black; */
+    width: 100%;
+    text-align: center;
+}
+
+.login_btn {
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+/* User */
+.user_container{
+    background-color: rgb(252, 249, 250);
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Nav */
+.nav_con_admin{
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    padding: 4px;
+    text-decoration: none;
+    gap: 12px;
+}
+.nav_container{
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    padding: 4px;
+    text-decoration: none;
+    gap: 12px;
+}
