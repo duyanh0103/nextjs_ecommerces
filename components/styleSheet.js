@@ -40,6 +40,7 @@ export default function(){
                 <style jsx global>{`
           html,
           body {
+            height: 100%;
             padding: 0;
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
@@ -49,6 +50,7 @@ export default function(){
           * {
             box-sizing: border-box;
           }
+
 
         `}</style>
         </div>

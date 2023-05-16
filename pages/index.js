@@ -10,14 +10,14 @@ export default function Home() {
         <div className={styles.login_container}>
           <button onClick={() => signIn('google')} className={styles.login_btn}>Login with Google </button>
         </div>
-
+        <StyleSheet />
       </div>
     )
   }
   return (
-    <div className={styles.user_container}>
+    <div className={styles.container}>
       <Nav />
-      <div>logged in as {session.user.email} <br />
+      <div className={styles.user_container}>logged in as {session.user.email} <br />
         <button onClick={() => signOut()}>Sign out</button>
       </div>
       <StyleSheet />
