@@ -1,27 +1,17 @@
-import Nav from "../components/nav";
-import StyleSheet from "../components/styleSheet";
+import Layout from "../components/layout";
 import styles from "../styles/Home.module.css"
-import { useSession, signIn, signOut } from "next-auth/react"
+import { useSession } from "next-auth/react"
 export default function Home() {
+  // dùng session để lấy data từ mongo
   const { data: session } = useSession();
-  if (!session) {
-    return (
-      <div className={styles.login_form}>
-        <div className={styles.login_container}>
-          <button onClick={() => signIn('google')} className={styles.login_btn}>Login with Google </button>
-        </div>
-        <StyleSheet />
-      </div>
-    )
-  }
-  return (
-    <div className={styles.container}>
-      <Nav />
-      <div className={styles.user_container}>logged in as {session.user.email} <br />
-        <button onClick={() => signOut()}>Sign out</button>
-      </div>
-      <StyleSheet />
-    </div>
+  return <Layout>
+    <div className={styles.dashboard_container}>
+      <h2> Hello, {session?.user.name}</h2>
 
-  )
+      <div className={styles.dashboard_avt}>
+        <img src={session?.user.image} alt="avatar error" className={styles.user_img} />
+      {session?.user.name}
+      </div>
+    </div>
+  </Layout>
 }

@@ -1,3 +1,8 @@
+
+
+
+
+
 /* Login */
 
 .login_form {
@@ -34,8 +39,8 @@
 }
 
 .user_container {
-    /* margin-top: 10px;
-    margin-right: 20px;  */
+    /* margin-top: 10px; */
+    margin-right: 20px; 
     background-color: white;
     width: 100%;
     height: 95%;
@@ -66,31 +71,69 @@
     text-decoration: none;
     gap: 12px;
     color: white;
-    
+    transition: all 300ms ease;
 }
 .nav_container:hover{
     color: rgb(9, 9, 9);
     background-color: white;
     border-radius: 10px 0 0 10px;
-    justify-content: center;
+    text-decoration: underline;
+    margin: 1rem 0 1rem 0;
 }
 
-.nav_container:active {
+/* .nav_container:active {
     color: rgb(9, 9, 9);
     background-color: white;
     border-radius: 10px 0 0 10px;
-    justify-content: center;
-}
+} */
 
 .nav_container_active {
     display: flex;
     align-items: center;
     font-weight: bold;
-    padding: 4px;
+    padding: 10px;
     text-decoration: none;
     gap: 12px;
+    color: white;
+    transition: all 300ms ease;
     color: rgb(9, 9, 9);
     background-color: white;
     border-radius: 10px 0 0 10px;
+    text-decoration: underline;
+    margin: 1rem 0 1rem 0;
     
+}
+/* Dashboard */
+.dashboard_container {
+    color: rgb(69, 162, 229);
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard_avt{
+    align-items: center;
+    background-color: rgb(158, 184, 185);
+    display: flex;
+    color: black;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px;
+    padding: 10px;
+}
+
+.user_img{
+    width: 60px;
+    padding: 10px;
+}
+
+
+/* Product */
+.product_add_link{
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(224, 106, 106);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: rgb(221, 195, 195) 1px 1px 10px 0px;
 }
