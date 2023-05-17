@@ -137,3 +137,15 @@
     border-radius: 10px;
     box-shadow: rgb(221, 195, 195) 1px 1px 10px 0px;
 }
+.product_add_link:hover{
+    background-color: brown;
+    /* border-color: rgb(151, 151, 205); */
+}
+
+/* new product */
+.new_prod_header{
+    color: blue;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size:25px;
+}

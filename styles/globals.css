@@ -32,6 +32,7 @@ ul {
   margin: 0;
 }
 
+
 ul {
   padding: 0;
   list-style: none;
@@ -40,4 +41,30 @@ ul {
 button {
   padding: 0.5rem 1rem;
   font-weight: bold;
+}
+
+input,textarea {
+  /* padding:10px;
+  border-radius:10px;
+  border-color: blue; */
+  @apply border-2 border-gray-300 rounded-md px-2 w-full;
+  @apply mb-2
+}
+
+input:focus textarea:focus{
+  @apply border-gray-300;
+  
+}
+
+/* btn primary */
+.btn-primary{
+  /* @apply bg-blue-500 text-white px-4 py-1; */
+  background-color: rgb(111, 111, 245);
+  color: white;
+  padding: 10px 50px;
+  border-radius: 10px;
+}
+.btn-primary:hover{
+  background-color: rgb(70, 70, 238);
+  box-shadow: rgb(186, 183, 183) 1px 1px 2px 0px;
 }
