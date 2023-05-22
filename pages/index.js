@@ -6,11 +6,11 @@ export default function Home() {
   const { data: session } = useSession();
   return <Layout>
     <div className={styles.dashboard_container}>
-      <h2> Hello, {session?.user.name}</h2>
+      <h2> Hello, {session?.user?.name}</h2>
 
       <div className={styles.dashboard_avt}>
-        <img src={session?.user.image} alt="avatar error" className={styles.user_img} />
-      {session?.user.name}
+        <img src={session?.user?.image} alt="avatar error" className={styles.user_img} />
+      {session?.user?.name}
       </div>
     </div>
   </Layout>
