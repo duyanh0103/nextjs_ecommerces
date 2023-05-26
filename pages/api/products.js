@@ -20,17 +20,18 @@ export default async function handle(req, res) {
     if (method === 'POST') {
         // create a product
         // TODO: to put product inside the database => use mongoose to create database layer connection
-        const { title, description, price } = req.body;
+        const { title, description, price, images } = req.body;
         const productDoc = await Product.create({
-            title, description, price,
+            title, description, price, images
         })
         res.json(productDoc);
     }
 
     if (method === 'PUT') {
-        const { title, description, price, _id} = req.body;
+        const { title, description, price, images,_id} = req.body;
         // update product
-        await Product.updateOne({_id},{title,description, price});
+        console.log(images);
+        await Product.updateOne({_id},{title,description, price,images});
         res.json(true);
     }
 

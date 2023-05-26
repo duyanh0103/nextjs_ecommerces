@@ -21,8 +21,8 @@ a {
 }
 
 img {
-  max-width: 100%;
-  height: auto;
+  /* max-width: 100%; */
+  max-height: 100%;
 }
 
 h1,
@@ -68,9 +68,6 @@ input:focus textarea:focus{
 .btn-primary{
   /* @apply bg-blue-500 text-white px-4 py-1; */
   background-color: rgb(111, 111, 245);
-  color: white;
-  padding: 10px 50px;
-  border-radius: 10px;
 }
 .btn-primary:hover{
   background-color: rgb(70, 70, 238);
@@ -97,7 +94,7 @@ table.basic a:hover{
 }
 
 /* btn */
-.btn-red,.btn-default{
+.btn-red,.btn-default, .btn-primary{
   margin-top: 10px;
   border-radius: 10px;
   box-shadow: rgb(183, 183, 183) 1px 1px 0 0;

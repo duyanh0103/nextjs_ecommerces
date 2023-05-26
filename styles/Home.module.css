@@ -155,8 +155,8 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    width: 130px;
-    height: 70px;
+    width: 6rem;
+    height: 6rem;
     color: grey;
     background-color: rgb(239, 239, 239);
     cursor: pointer;
