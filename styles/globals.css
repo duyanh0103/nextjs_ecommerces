@@ -51,15 +51,15 @@ label{
   font-weight: 500;
   color: rgb(19, 23, 135);
 }
-input,textarea {
+input,textarea, select {
   /* padding:10px;
   border-radius:10px;
   border-color: blue; */
   @apply border-2 border-gray-300 rounded-md px-2 w-full;
-  @apply mb-2
+  @apply mb-2 mt-2;
 }
 
-input:focus textarea:focus{
+input:focus textarea:focus select:focus {
   @apply border-gray-300;
   
 }
@@ -78,19 +78,24 @@ input:focus textarea:focus{
 table.basic{
   @apply w-full;
 }
+
 table.basic thead tr td{
-  @apply bg-slate-500 text-slate-100;
+  /* @apply bg-orange-400 text-slate-100; */
+  background-color: #F86F03;
+  color: #FFF6F4;
+  font-weight: bold;
 }
 table.basic tr td{
-  @apply border border-blue-300 p-1;
+  @apply border border-blue-900 p-2;
 }
 
 table.basic a{
-  @apply bg-amber-600 text-white px-2 py-1 text-sm rounded-md inline-flex gap-1 mr-1;
+  @apply  text-white px-2 py-1 text-sm rounded-md inline-flex gap-1 mr-1;
+  background-color: #F86F03;
 }
 
 table.basic a:hover{
-  @apply bg-amber-400
+  background-color: #FFA41B;
 }
 
 /* btn */

@@ -20,7 +20,8 @@
     "react-sortablejs": "^6.1.4",
     "react-spinners": "^0.13.8",
     "react-sweetalert2": "^0.5.2",
-    "sortablejs": "^1.15.0"
+    "sortablejs": "^1.15.0",
+    "sweetalert2": "^11.4.8"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",

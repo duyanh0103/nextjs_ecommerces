@@ -11,23 +11,33 @@ export default function ProductForm({
     description: existingDescription,
     price: existingPrice,
     images: existingImages,
+    category: assignedCategory,
+    properties: assignedProperties,
 }) {
     // state for all the input elements
     const [title, setTitle] = useState(existingTitle || '');
     const [description, setDescription] = useState(existingDescription || '');
     const [price, setPrice] = useState(existingPrice || '');
     const [images, setImages] = useState(existingImages || []);
+    const [category, setCategory] = useState(assignedCategory || '');
+    const [productProperties, setProductProperties] = useState(assignedProperties || {});
     const [isUploading, setIsUploading] = useState(false);
     const [goToProducts, setGoToProducts] = useState(false);
-    // categories
+    const [categories, setCategories] = useState([]);
 
+    // categories
+    useEffect(() => {
+        axios.get('/api/categories').then(result => {
+            setCategories(result.data);
+        })
+    }, []);
     // router
     const router = useRouter();
     // clg id
     // console.log(_id);
     async function saveProduct(e) {
         e.preventDefault();
-        const data = { title, description, price, images };
+        const data = { title, description, price, images, category, properties: productProperties };
         // check _id existed or not 
         if (_id) {
             //update
@@ -47,14 +57,12 @@ export default function ProductForm({
         router.push('/products');
     }
     async function uploadImgs(e) {
-        // console.log(e.target?.files);
         const files = e.target.files;
         if (files?.length > 0) {
             setIsUploading(true);
             // send those files as formData instead of jsons
             const data = new FormData();
             for (const file of files) {
-                // files.forEach(file => data.append('file',file));
                 data.append('file', file)
             }
             // const res = await axios.post('/api/upload', data, {
@@ -75,6 +83,31 @@ export default function ProductForm({
     function updateImagesOrder(images) {
         setImages(images);
     }
+
+    // thay đổi được các prop của sản phẩm trong ProductForm
+    function setProductProp(propName,value) {
+        setProductProperties(prev => {
+          const newProductProps = {...prev};
+          newProductProps[propName] = value;
+          return newProductProps;
+        });
+      }
+
+    // lấy properties từ prop child và prop parent (vidu lấy prop iphone cần đi kèm theo prop mobile)
+    const propertiesToFill = [];
+    if (categories.length > 0 && category) {
+        let catInfo = categories.find(({ _id }) => _id === category);
+        //    console.log({selCatInfo});
+        propertiesToFill.push(...catInfo.properties);
+        //check xem cái category này có parent hay không?
+        //nếu có thì tìm thông tin về parent đó và push properties đó vào array
+        while (catInfo?.parent?._id) {
+            const parentCat = categories.find(({ _id }) => _id === catInfo?.parent?._id);
+            propertiesToFill.push(...parentCat.properties);
+            catInfo = parentCat;
+        }
+    }
+
     return (
         <form onSubmit={saveProduct}>
             <label className={styles.new_prod_title}>Product name:</label>
@@ -84,6 +117,29 @@ export default function ProductForm({
                 value={title}
                 onChange={e => setTitle(e.target.value)}
             />
+            <label>Category</label>
+            <select
+                value={category}
+                onChange={ev => setCategory(ev.target.value)}>
+
+                <option value="">Không phân loại</option>
+                {categories.length > 0 && categories.map(c => (
+                    <option value={c._id}>{c.name}</option>
+                ))}
+            </select>
+            {/* hiển thị category */}
+            {propertiesToFill.length > 0 && propertiesToFill.map(p => (
+                <div className="flex gap-1">
+                    <div>{p.name}</div>
+                    <select value={productProperties[p.name]}
+                        onChange={(e) => setProductProp(p.name, e.target.value)} >
+                        {p.values.map(v => (
+                            <option value={v}>{v}</option>
+                        ))}
+                    </select>
+                </div>
+
+            ))}
             <label>
                 Photo
             </label>
